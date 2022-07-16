@@ -1,0 +1,71 @@
+<div class="text-center bg-all">
+  <h1 class="container p-3 border-bottom border-3 border-secondary">
+    {{ description.title }}
+  </h1>
+  <div class="container p-2 d-flex justify-content-start align-items-center">
+    <img
+      class="col-6 p-4"
+      src="https://image.tmdb.org/t/p/w500/{{ description.poster_path }}"
+      alt=""
+    />
+    <div class="col-5">
+      <p class="fs-3">{{ description.tagline }}</p>
+      <p *ngIf="description.overview != null">{{ description.overview }}</p>
+      <p>Release Date: {{ description.release_date }}</p>
+    </div>
+  </div>
+  <div class="p1">
+    <h3>Genders:</h3>
+    <div>
+      <span *ngIf="description.genres[0] != null">
+        {{ description.genres[0].name }}
+      </span>
+      <span *ngIf="description.genres[1] != null">
+        , {{ description.genres[1].name }}
+      </span>
+      <span *ngIf="description.genres[2] != null">
+        , {{ description.genres[2].name }}
+      </span>
+    </div>
+  </div>
+  <img
+    class="p-4"
+    *ngIf="description.belongs_to_collection != null"
+    src="https://image.tmdb.org/t/p/w500/{{
+      description.belongs_to_collection.backdrop_path
+    }}"
+    alt=""
+  />
+</div>
+<h1 class="text-center m-3 border-bottom border-3">Similar Movies</h1>
+<div
+  class="check-cards row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 gx-0"
+>
+  <div *ngFor="let posts of similar.results">
+    <div
+      class="card text-center p-1 m-2 border-0"
+      (click)="getMovieID(posts.id)"
+    >
+      <img
+        src="https://image.tmdb.org/t/p/w500/{{ posts.poster_path }}"
+        class="card-img-top"
+      />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{
+            posts.title.length > 15
+              ? (posts.title | slice: 0:15) + ".."
+              : posts.title
+          }}
+        </h5>
+        <p class="card-text">
+          {{
+            posts.overview.length > 100
+              ? (posts.overview | slice: 0:100) + ".."
+              : posts.overview
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

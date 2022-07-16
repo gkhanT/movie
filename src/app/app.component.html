@@ -1,0 +1,54 @@
+<header class="bg-header">
+  <div class="navbar justify-content-around navbar-expand-md navbar-dark">
+    <h1 class="ms-4">
+      <i (click)="goToHome()" class="bi bi-house-fill p-2"></i>Movie Site
+    </h1>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsible"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <nav class="navbar">
+      <div id="collapsible" class="collapse navbar-collapse">
+        <ul class="list-group list-group-horizontal me-auto">
+          <li>
+            <a routerLink="/home" class="pe-3 fs-5">Home</a>
+          </li>
+          <li>
+            <a routerLink="/popular" class="pe-3 fs-5">Popular</a>
+          </li>
+          <li>
+            <a routerLink="/topRated" class="pe-3 fs-5">Top Rated</a>
+          </li>
+          <li>
+            <a routerLink="/trending" class="pe-3 fs-5">Trending</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer class="bg-secondary text-center text-white">
+  <div class="p-3">
+    <div class="mb-1">
+      <a href="#"><i class="i bi bi-youtube m-3"></i></a>
+
+      <a href="#"><i class="i bi bi-twitter m-3"></i></a>
+
+      <a href="#"><i class="i bi bi-instagram m-3"></i></a>
+
+      <a href="#" target="_blank"
+        ><i class="i bi bi-github m-3"></i
+      ></a>
+    </div>
+  </div>
+
+  <div class="text-center p-2 mb-2">MGT</div>
+</footer>
